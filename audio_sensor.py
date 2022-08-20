@@ -16,7 +16,7 @@ def cleanup():
 
 atexit.register(cleanup)
 
-tracks_as_string = str((subprocess.run("ls /mnt/usb0 | grep '.mp3'", shell=True, capture_output=True).stdout), "utf-8")
+tracks_as_string = str((subprocess.run("ls /media/hoyby/KINGSTON | grep '.mp3'", shell=True, capture_output=True).stdout), "utf-8")
 tracks = tracks_as_string.split("\n")
 tracks.pop(-1)
 
@@ -27,7 +27,7 @@ while True:
         print("PIN is high")
         track=tracks[random.randint(0, len(tracks)-1)]
 
-        subprocess.run(f"mpg123 --stereo /mnt/usb0/{track}", shell=True)
+        subprocess.run(f"mpg123 --stereo /media/hoyby/KINGSTON/{track}", shell=True)
         time.sleep(19)
 
     time.sleep(1)
